@@ -3,21 +3,13 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="index.css" />
+    <title>生年月日入力</title>
+    <script src="main.js" defer></script>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    <h2>こんにちは</h2>
-    <div>
-      <p id="text">色が変わるよ</p>
-      <button onclick="changeColor()">ボタンだよ</button>
-    </div>
-    <span style="margin: 40px"></span>
-    <div>
-      <button onclick="increaseCount()">数字が増えるボタン</button>
-      <button onclick="decreaseCount()">数字が減るボタン</button>
-    </div>
-    <p>Count=<span id="counter">1</span></p>
+    <h1>生年月日の入力</h1>
+    <input type="number" id="month" placeholder="月を入力してください" />
+    <input type="number" id="day" placeholder="日を入力してください" />
+    <button onclick="showBirth()">入力</button>
   </body>
-  <script src="main.js"></script>
 </html>
