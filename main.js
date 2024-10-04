@@ -1,9 +1,3 @@
-/*
-  JavaScriptのプログラムとHTMLのタグはどこで対応しているか
-  タグについているidで持ってこれる
-  タグの中にある付加情報のことを属性という
-  console.log()はC言語でいうところのprintf()のようなもの
-*/
 /** @type {HTMLInputElement} */
 const monthInput = document.getElementById("month");
 /** @type {HTMLInputElement} */
@@ -26,9 +20,30 @@ function errorCheck() {
     return;
   }
     */
-  console.log(`month: ${monthInput.value}, day: ${dayInput.value}`);
+  console.log(`month: ${month}, day: ${day}`);
 }
 
-function showBirth() {
-  p.innerText = `${monthInput.value}月${dayInput.value}日`;
-}
+(() => {
+  /** @type {HTMLSelectElement | null} */
+  const monthSelect = document.getElementById("month-select");
+  if (!monthSelect) throw Error("monthSelect");
+  for (let i = 1; i <= 12; i++) {
+    const option = document.createElement("option");
+    option.value = i;
+    option.textContent = i;
+    monthSelect.appendChild(option);
+  }
+  /** @type {HTMLSelectElement | null} */
+  const daySelect = document.getElementById("day-select");
+  if (!daySelect) throw Error("day-select");
+  daySelect.append(
+    ...Array(31)
+      .fill(null)
+      .map((_, i) => {
+        const option = document.createElement("option");
+        option.value = i + 1;
+        option.textContent = i + 1;
+        return option
+      })
+  );
+})();
