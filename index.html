@@ -7,9 +7,80 @@
     <script src="main.js" defer></script>
   </head>
   <body>
-    <h1>生年月日の入力</h1>
-    <input type="number" id="month" placeholder="月を入力してください" />
-    <input type="number" id="day" placeholder="日を入力してください" />
-    <button onclick="showBirth()">入力</button>
+    <div>
+      <h1>生年月日の入力</h1>
+      <label for="month">月:</label>
+      <input
+        id="month"
+        type="number"
+        min="1"
+        max="12"
+        autocomplete="bday-month"
+        placeholder="月を入力してください"
+      />
+      <label for="day">日:</label>
+      <input
+        id="day"
+        type="number"
+        min="1"
+        max="31"
+        autocomplete="bday-day"
+        placeholder="日を入力してください"
+      />
+      <button onclick="errorCheck()">入力</button>
+    </div>
+
+    <div>
+      <label for="date-select">生年月日の選択</label>
+      <select name="month2" id="month-select">
+        <option value="" selected>選択してください</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+      </select>
+      <select name="day2" id="day-select">
+        <option value="" selected>選択してください</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+        <option value="31">31</option>
+      </select>
+    </div>
   </body>
 </html>
