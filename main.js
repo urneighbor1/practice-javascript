@@ -19,8 +19,9 @@ gameSelector.addEventListener("change", function () {
     case "number-guess":
       NumberGuessGame();
       break;
-      case "rps":
-        RPS();
+    case "rps":
+      RPS();
+      break;
     default:
       throw new Error(`Unknown value: ${gameSelector.value}`);
   }
