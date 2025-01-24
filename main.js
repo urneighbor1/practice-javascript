@@ -9,43 +9,42 @@ function ClickCounterGame() {
   button1.textContent = "+1ボタン";
 
   button1.addEventListener("click", function () {
-    setCount(prev => prev + 1);
+    setCount(count + 1);
   });
 
   let button10 = document.createElement("button");
   button10.textContent = "+10ボタン";
 
   button10.addEventListener("click", function () {
-    setCount(prev => prev + 10);
+    setCount(count + 10);
   });
 
   let resetButton = document.createElement("button");
   resetButton.textContent = "リセットボタン";
 
   resetButton.addEventListener("click", function () {
-    setCount(() => 0);
+    setCount(0);
   });
 
   counter.addEventListener("click", function () {
-    setCount(() => 0);
+    setCount(0);
   });
 
   /**
-   * @param {(prev: number) => number} f
+   * @param {number} value
    * ```
    * console.log(count) // 90
 
-   * setCount(prev => prev + 5);
+   * setCount(count + 5);
    * console.log(count) // 95
 
-   * setCount(prev => prev + 10);
+   * setCount(count + 10);
    * console.log(count) // 95
    * ```
    */
-  function setCount(f) {
-    const newValue = f(count);
-    if (newValue <= 100) {
-      count = newValue;
+  function setCount(value) {
+    if (value <= 100) {
+      count = value;
       counter.textContent = count;
     }
   }
