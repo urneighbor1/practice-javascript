@@ -97,7 +97,7 @@ function startNumberGuessGame() {
       // intValue === randomNumber
       result.textContent = "正解";
     }
-    counter.textContent = count;
+    counter.textContent = `試行回数: ${count}`;
   });
   gameContainer.appendChild(judge);
   gameContainer.appendChild(result);
