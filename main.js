@@ -1,60 +1,83 @@
-// function ClickCounterGame() {
-//   let count = 0;
-//   const gameContainer = document.getElementById("game-container");
+function main() {
+  const gameContainer = document.getElementById("game-container");
+  const gameSelector = document.getElementById("game-select");
 
-//   let counter = document.createElement("p");
-//   counter.textContent = count;
+  gameSelector.addEventListener("change", () => {
+    gameContainer.innerHTML = "";
+    switch (gameSelector.value) {
+      case "clicker":
+        ClickCounterGame();
+        break;
+      case "number-guess":
+        startNumberGuessGame();
+        break;
+      case "RPS":
+        break;
+      case "":
+        break;
+      default:
+        throw new Error(`unknown value ${gameSelector.value}`);
+    }
+  });
+}
+main();
 
-//   let button1 = document.createElement("button");
-//   button1.textContent = "+1ボタン";
+function ClickCounterGame() {
+  let count = 0;
+  const gameContainer = document.getElementById("game-container");
 
-//   button1.addEventListener("click", function () {
-//     setCount(count + 1);
-//   });
+  let counter = document.createElement("p");
+  counter.textContent = count;
 
-//   let button10 = document.createElement("button");
-//   button10.textContent = "+10ボタン";
+  let button1 = document.createElement("button");
+  button1.textContent = "+1ボタン";
 
-//   button10.addEventListener("click", function () {
-//     setCount(count + 10);
-//   });
+  button1.addEventListener("click", function () {
+    setCount(count + 1);
+  });
 
-//   let resetButton = document.createElement("button");
-//   resetButton.textContent = "リセットボタン";
+  let button10 = document.createElement("button");
+  button10.textContent = "+10ボタン";
 
-//   resetButton.addEventListener("click", function () {
-//     setCount(0);
-//   });
+  button10.addEventListener("click", function () {
+    setCount(count + 10);
+  });
 
-//   counter.addEventListener("click", function () {
-//     setCount(0);
-//   });
+  let resetButton = document.createElement("button");
+  resetButton.textContent = "リセットボタン";
 
-//   /**
-//    * @param {number} value
-//    * ```
-//    * console.log(count) // 90
+  resetButton.addEventListener("click", function () {
+    setCount(0);
+  });
 
-//    * setCount(count + 5);
-//    * console.log(count) // 95
+  counter.addEventListener("click", function () {
+    setCount(0);
+  });
 
-//    * setCount(count + 10);
-//    * console.log(count) // 95
-//    * ```
-//    */
-//   function setCount(value) {
-//     if (value <= 100) {
-//       count = value;
-//       counter.textContent = count;
-//     }
-//   }
+  /**
+   * @param {number} value
+   * ```
+   * console.log(count) // 90
 
-//   gameContainer.appendChild(button1);
-//   gameContainer.appendChild(button10);
-//   gameContainer.appendChild(resetButton);
-//   gameContainer.appendChild(counter);
-// }
-// ClickCounterGame();
+   * setCount(count + 5);
+   * console.log(count) // 95
+
+   * setCount(count + 10);
+   * console.log(count) // 95
+   * ```
+   */
+  function setCount(value) {
+    if (value <= 100) {
+      count = value;
+      counter.textContent = count;
+    }
+  }
+
+  gameContainer.appendChild(button1);
+  gameContainer.appendChild(button10);
+  gameContainer.appendChild(resetButton);
+  gameContainer.appendChild(counter);
+}
 
 function startNumberGuessGame() {
   const gameContainer = document.getElementById("game-container");
@@ -103,5 +126,3 @@ function startNumberGuessGame() {
   gameContainer.appendChild(result);
   gameContainer.appendChild(counter);
 }
-
-startNumberGuessGame();
