@@ -1,6 +1,21 @@
 function main() {
   const gameContainer = document.getElementById("game-container");
-  const gameSelector = document.getElementById("game-select");
+  const gameSelectorContainer = document.getElementById("game-select");
+
+  const gameSelector = document.createElement("select");
+
+  /** @type {{value:string,text:string}[]} */
+  const options = [
+    { value: "", text: "--ゲームを選択してください--" },
+    { value: "clicker", text: "クリッカーゲーム" },
+    { value: "number-guess", text: "数当てゲーム" },
+    { value: "RPS", text: "じゃんけんゲーム" },
+  ];
+  gameSelector.append(
+    ...options.map(({ value, text: textContent }) =>
+      Object.assign(document.createElement("option"), { value, textContent })
+    )
+  );
 
   gameSelector.addEventListener("change", () => {
     gameContainer.innerHTML = "";
@@ -19,6 +34,8 @@ function main() {
         throw new Error(`unknown value ${gameSelector.value}`);
     }
   });
+
+  gameSelectorContainer.appendChild(gameSelector);
 }
 main();
 
